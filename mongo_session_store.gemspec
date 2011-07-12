@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
     "README.md",
      "lib/mongo_session_store.rb",
      "lib/mongo_session_store/mongo_mapper.rb",
-     "lib/mongo_session_store/mongoid.rb"
   ]
   s.homepage = %q{http://github.com/nmerouze/mongo_session_store}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -33,16 +32,13 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<actionpack>, ["~> 3.0"])
       s.add_development_dependency(%q<mongo_mapper-rails3>, [">= 0.7.2"])
-      s.add_development_dependency(%q<mongoid>, ["~> 2.0"])
     else
       s.add_dependency(%q<actionpack>, ["~> 3.0"])
       s.add_dependency(%q<mongo_mapper-rails3>, [">= 0.7.2"])
-      s.add_dependency(%q<mongoid>, ["~> 2.0"])
     end
   else
     s.add_dependency(%q<actionpack>, ["~> 3.0"])
     s.add_dependency(%q<mongo_mapper-rails3>, [">= 0.7.2"])
-    s.add_dependency(%q<mongoid>, ["~> 2.0"])
   end
 end
 
