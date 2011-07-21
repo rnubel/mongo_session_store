@@ -55,6 +55,11 @@ module ActionDispatch
           Marshal.load(packed.unpack("m*").first)
         end
 
+        def destroy(env)
+          if sid = current_session_id(env)
+            find_session(sid).destory
+        end
+      end
     end
   end
 end
