@@ -18,6 +18,12 @@ module ActionDispatch
 
       SESSION_RECORD_KEY = 'rack.session.record'.freeze
 
+        def destroy(env)
+          if sid = current_session_id(env)
+            find_session(sid).destroy
+          end
+        end
+
       private
         def generate_sid
           BSON::ObjectId.new
@@ -55,11 +61,7 @@ module ActionDispatch
           Marshal.load(packed.unpack("m*").first)
         end
 
-        def destroy(env)
-          if sid = current_session_id(env)
-            find_session(sid).destroy
-        end
-      end
+
     end
   end
 end
